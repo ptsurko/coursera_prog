@@ -10,11 +10,11 @@ val test2 = number_in_month([(2012,2,28),(2013,12,1)],2) = 1
 
 val test3 = number_in_months([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[2,3,4]) = 3
 
-(*val test4 = dates_in_month([(2012,2,28),(2013,12,1)],2) = [(2012,2,28)]
+val test4 = dates_in_month([(2012,2,28),(2013,12,1)],2) = [(2012,2,28)]
 
 val test5 = dates_in_months([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[2,3,4]) = [(2012,2,28),(2011,3,31),(2011,4,28)]
 
-val test6 = get_nth(["hi", "there", "how", "are", "you"], 2) = "there"
+(*val test6 = get_nth(["hi", "there", "how", "are", "you"], 2) = "there"
 
 val test7 = date_to_string((2013, 6, 1)) = "June 1, 2013"
 
