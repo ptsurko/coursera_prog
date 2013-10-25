@@ -5,6 +5,8 @@
 
 val test1 = all_except_option2("string", ["string"]) = SOME []
 val test1_1 = all_except_option2("string", ["string", "s2"]) = SOME ["s2"]
+val test1_2 = all_except_option2("string1", ["string", "s2"]) = NONE
+val test1_3 = all_except_option2("string", []) = NONE
 
 val test2 = get_substitutions1([["foo"],["there"]], "foo") = []
 
@@ -13,16 +15,22 @@ val test3 = get_substitutions2([["foo"],["there"]], "foo") = []
 val test4 = similar_names([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], {first="Fred", middle="W", last="Smith"}) =
 	    [{first="Fred", last="Smith", middle="W"}, {first="Fredrick", last="Smith", middle="W"},
 	     {first="Freddie", last="Smith", middle="W"}, {first="F", last="Smith", middle="W"}]
-(*
+
+val test4_1 = similar_names([], {first="Fred", middle="W", last="Smith"}) =
+	    [{first="Fred", last="Smith", middle="W"}]
+
 val test5 = card_color((Clubs, Num 2)) = Black
 
 val test6 = card_value((Clubs, Num 2)) = 2
 
+
 val test7 = remove_card([(Hearts, Ace)], (Hearts, Ace), IllegalMove) = []
 
 val test8 = all_same_color([(Hearts, Ace), (Hearts, Ace)]) = true
+val test8_1 = all_same_color([(Hearts, Ace), (Hearts, Ace), (Hearts, Num 2)]) = true
 
 val test9 = sum_cards([(Clubs, Num 2),(Clubs, Num 2)]) = 4
+val test9_1 = sum_cards([]) = 0
 
 val test10 = score([(Hearts, Num 2),(Clubs, Num 4)],10) = 4
 
@@ -38,5 +46,4 @@ val test13 = ((officiate([(Clubs,Jack),(Spades,Num(8))],
                          42);
                false) 
               handle IllegalMove => true)
-             
-*)
+            
